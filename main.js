@@ -17,20 +17,41 @@ const playRound = (
   playerScore,
   aiScore,
   round,
+  endGame,
   playerButtons,
 ) => {
+  const playerScoreCointainer = document.querySelector("#player-score");
+  const aiScoreContainer = document.querySelector("#ai-score");
+  const roundContainer = document.querySelector("#round");
+  const endGameContainer = document.querySelector(".game-over");
+  const endGameMessage = document.querySelector("#game-over-message");
+
   const score = checkWinner(playerChoice);
   playerScore += score[0];
   aiScore += score[1];
-  console.log(playerScore, aiScore);
+
+  playerScoreCointainer.innerHTML = playerScore;
+  aiScoreContainer.innerHTML = aiScore;
+
   round++;
-  console.log(round);
-  if (round === 5) {
-    console.log("game over");
+
+  if (round < 6) roundContainer.innerHTML = round;
+
+  if (round === 6) {
+    endGame = true;
+
     playerButtons.forEach((btn) => (btn.disabled = true));
+
+    endGameContainer.style.display = "block";
+
+    const winner =
+      playerScore > aiScore ? "player" : playerScore < aiScore ? "ai" : "tie";
+
+    if (winner !== "tie") endGameMessage.innerHTML = `${winner} wins the game!`;
+    else endGameMessage.innerHTML = "It's a tie!";
   }
 
-  return { playerScore, aiScore, round };
+  return { playerScore, aiScore, round, endGame };
 };
 
 const playGame = () => {
@@ -38,7 +59,8 @@ const playGame = () => {
 
   let playerScore = 0;
   let aiScore = 0;
-  let round = 0;
+  let round = 1;
+  let endGame = false;
 
   playerButtons.forEach((button) =>
     button.addEventListener("click", (event) => {
@@ -48,12 +70,14 @@ const playGame = () => {
         playerScore,
         aiScore,
         round,
+        endGame,
         playerButtons,
       );
 
       playerScore = result.playerScore;
       aiScore = result.aiScore;
       round = result.round;
+      endGame = result.endGame;
     }),
   );
 };

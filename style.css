@@ -57,3 +57,7 @@ footer {
 main {
   flex-grow: 1;
 }
+
+.game-over {
+  display: none;
+}
