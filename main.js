@@ -63,8 +63,8 @@ const playGame = () => {
   let endGame = false;
 
   playerButtons.forEach((button) =>
-    button.addEventListener("click", (event) => {
-      const playerChoice = event.target.id;
+    button.addEventListener("click", (e) => {
+      const playerChoice = e.target.alt;
       const result = playRound(
         playerChoice,
         playerScore,

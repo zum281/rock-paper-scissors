@@ -12,28 +12,39 @@
     </header>
     <main>
       <div class="choices">
-        <button id="rock">rock</button>
-        <button id="paper">paper</button>
-        <button id="scissors">scissors</button>
+        <button id="rock">
+          <img src="./assets/rock.svg" alt="rock" width="64" height="64" />
+        </button>
+        <button id="paper">
+          <img src="./assets/paper.svg" alt="paper" width="64" height="64" />
+        </button>
+        <button id="scissors">
+          <img
+            src="./assets/scissors.svg"
+            alt="scissors"
+            width="64"
+            height="64" />
+        </button>
       </div>
-      <div class="round-wrapper">
-        <h2>Round</h2>
-        <p id="round">1</p>
-      </div>
-      <div class="score-wrapper">
-        <div class="score score__player">
-          <h2>Player</h2>
-          <p id="player-score">0</p>
+      <div class="info">
+        <div class="round-wrapper">
+          <h2>Round</h2>
+          <p id="round">1</p>
         </div>
-        <div class="score score__ai">
-          <h2>AI</h2>
-          <p id="ai-score">0</p>
+        <div class="score-wrapper">
+          <div class="score score__player">
+            <h2>Player</h2>
+            <p id="player-score">0</p>
+          </div>
+          <div class="score score__ai">
+            <h2>AI</h2>
+            <p id="ai-score">0</p>
+          </div>
         </div>
-      </div>
-
-      <div class="game-over">
-        <h2>Game Over</h2>
-        <p id="game-over-message"></p>
+        <div class="game-over">
+          <h2>Game Over</h2>
+          <p id="game-over-message"></p>
+        </div>
       </div>
     </main>
     <footer>
